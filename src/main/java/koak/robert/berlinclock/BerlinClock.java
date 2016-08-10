@@ -7,9 +7,18 @@ public class BerlinClock {
     public static final String LAMP_OFF = "X";
     public static final String LAMP_YELLOW = "Y";
     public static final String LAMP_RED = "R";
+    public static final String NEW_LINE = "\n";
+
+    public String convert(int hour, int min, int sec) {
+        return getLine0(sec) + NEW_LINE
+                + getLine1(hour) + NEW_LINE
+                + getLine2(hour) + NEW_LINE
+                + getLine3(min) + NEW_LINE
+                + getLine4(min);
+    }
 
     String getLine0(int sec) {
-        return (sec % 4 < 2) ? LAMP_YELLOW : LAMP_OFF;
+        return (sec % 4 < 2) ? LAMP_OFF : LAMP_YELLOW;
     }
 
     String getLine1(int hour) {
