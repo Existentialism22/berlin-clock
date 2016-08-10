@@ -62,4 +62,31 @@ public class BerlinClockUnitTest {
         assertThat(testObj.getLine2(23)).isEqualTo("RRRX");
     }
 
+    @Test
+    public void getLine3() {
+        assertThat(testObj.getLine3(0)).isEqualTo("XXXXXXXXXXX");
+        assertThat(testObj.getLine3(4)).isEqualTo("XXXXXXXXXXX");
+
+        assertThat(testObj.getLine3(5)).isEqualTo("YXXXXXXXXXX");
+        assertThat(testObj.getLine3(9)).isEqualTo("YXXXXXXXXXX");
+
+        assertThat(testObj.getLine3(10)).isEqualTo("YYXXXXXXXXX");
+        assertThat(testObj.getLine3(14)).isEqualTo("YYXXXXXXXXX");
+
+        assertThat(testObj.getLine3(15)).isEqualTo("YYRXXXXXXXX");
+        assertThat(testObj.getLine3(19)).isEqualTo("YYRXXXXXXXX");
+
+        assertThat(testObj.getLine3(20)).isEqualTo("YYRYXXXXXXX");
+        assertThat(testObj.getLine3(24)).isEqualTo("YYRYXXXXXXX");
+
+        assertThat(testObj.getLine3(25)).isEqualTo("YYRYYXXXXXX");
+        assertThat(testObj.getLine3(29)).isEqualTo("YYRYYXXXXXX");
+
+        assertThat(testObj.getLine3(30)).isEqualTo("YYRYYRXXXXX");
+        assertThat(testObj.getLine3(34)).isEqualTo("YYRYYRXXXXX");
+
+        assertThat(testObj.getLine3(55)).isEqualTo("YYRYYRYYRYY");
+        assertThat(testObj.getLine3(59)).isEqualTo("YYRYYRYYRYY");
+    }
+
 }
