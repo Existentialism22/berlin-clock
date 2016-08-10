@@ -2,7 +2,8 @@ package koak.robert.berlinclock;
 
 public class BerlinClock {
 
-    public static final int MAJOR_LAMP_REP = 5;
+    public static final int MAJOR_LAMP_QUANT = 5;
+
     public static final String LAMP_OFF = "X";
     public static final String LAMP_YELLOW = "Y";
     public static final String LAMP_RED = "R";
@@ -12,20 +13,20 @@ public class BerlinClock {
     }
 
     String getLine1(int hour) {
-        int numberOfOnLamps = hour / MAJOR_LAMP_REP;
-        return turnNumberOfOnLampsToHour(numberOfOnLamps);
+        int numberOfLampsOn = hour / MAJOR_LAMP_QUANT;
+        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_RED);
     }
 
     String getLine2(int hour) {
-        int numberOfOnLamps = hour % MAJOR_LAMP_REP;
-        return turnNumberOfOnLampsToHour(numberOfOnLamps);
+        int numberOfLampsOn = hour % MAJOR_LAMP_QUANT;
+        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_RED);
     }
 
-    private String turnNumberOfOnLampsToHour(int numberOfOnLamps) {
+    private String turnNumberOfOnLampsToString(int numberOfLampsOn, String onLampColour) {
         String returnable = "";
         for (int i = 0; i < 4; i++) {
-            if (i < numberOfOnLamps) {
-                returnable += LAMP_RED;
+            if (i < numberOfLampsOn) {
+                returnable += onLampColour;
             } else {
                 returnable += LAMP_OFF;
             }
@@ -33,12 +34,12 @@ public class BerlinClock {
         return returnable;
     }
 
-    public String getLine3(int min) {
-        int numberOfOnLamps = min / MAJOR_LAMP_REP;
+    String getLine3(int min) {
+        int numberOfLampsOn = min / MAJOR_LAMP_QUANT;
 
         String returnable = "";
         for (int i = 0; i < 11; i++) {
-            if (i < numberOfOnLamps) {
+            if (i < numberOfLampsOn) {
                 if (i % 3 == 2) {
                     returnable += LAMP_RED;
                 } else {
@@ -49,5 +50,10 @@ public class BerlinClock {
             }
         }
         return returnable;
+    }
+
+    String getLine4(int min) {
+        int numberOfLampsOn = min % MAJOR_LAMP_QUANT;
+        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_YELLOW);
     }
 }
