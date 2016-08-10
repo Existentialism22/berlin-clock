@@ -39,6 +39,11 @@ Each character in the response is represented as below;
 * R => Lamp is ON and RED
 * X => Lamp is OFF
 
+## Ambiguity
+
+Not having seen the clock in person, I have interpreted that 'blinking on/off every two seconds' to be 'light comes on for two seconds and then off for two seconds'
+
+
 ## How to Run
 
 1. Please clone this repo.
