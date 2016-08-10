@@ -12,11 +12,25 @@ public class BerlinClock {
     }
 
     String getLine1(int hour) {
-        int on = hour / LINE_1_EACH_LAMP_HOURS;
+        int numberOfOnLamps = hour / LINE_1_EACH_LAMP_HOURS;
 
         String returnable = "";
-        for(int i = 1; i < LINE_1_EACH_LAMP_HOURS; i++) {
-            if (i <= on) {
+        for (int i = 1; i < LINE_1_EACH_LAMP_HOURS; i++) {
+            if (i <= numberOfOnLamps) {
+                returnable += LAMP_RED;
+            } else {
+                returnable += LAMP_OFF;
+            }
+        }
+        return returnable;
+    }
+
+    String getLine2(int hour) {
+        int numberOfOnLamps = hour % LINE_1_EACH_LAMP_HOURS;
+
+        String returnable = "";
+        for (int i = 1; i < LINE_1_EACH_LAMP_HOURS; i++) {
+            if (i <= numberOfOnLamps) {
                 returnable += LAMP_RED;
             } else {
                 returnable += LAMP_OFF;
