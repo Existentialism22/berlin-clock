@@ -14,17 +14,27 @@ public class BerlinClock {
 
     String getLine1(int hour) {
         int numberOfLampsOn = hour / MAJOR_LAMP_QUANT;
-        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_RED);
+        return turnNumberOfLampsOnToString(numberOfLampsOn, LAMP_RED, 4);
     }
 
     String getLine2(int hour) {
         int numberOfLampsOn = hour % MAJOR_LAMP_QUANT;
-        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_RED);
+        return turnNumberOfLampsOnToString(numberOfLampsOn, LAMP_RED, 4);
     }
 
-    private String turnNumberOfOnLampsToString(int numberOfLampsOn, String onLampColour) {
+    String getLine3(int min) {
+        int numberOfLampsOn = min / MAJOR_LAMP_QUANT;
+        return turnNumberOfLampsOnToString(numberOfLampsOn, LAMP_YELLOW, 11).replaceAll("YYY", "YYR");
+    }
+
+    String getLine4(int min) {
+        int numberOfLampsOn = min % MAJOR_LAMP_QUANT;
+        return turnNumberOfLampsOnToString(numberOfLampsOn, LAMP_YELLOW, 4);
+    }
+
+    private String turnNumberOfLampsOnToString(int numberOfLampsOn, String onLampColour, int length) {
         String returnable = "";
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < length; i++) {
             if (i < numberOfLampsOn) {
                 returnable += onLampColour;
             } else {
@@ -32,28 +42,5 @@ public class BerlinClock {
             }
         }
         return returnable;
-    }
-
-    String getLine3(int min) {
-        int numberOfLampsOn = min / MAJOR_LAMP_QUANT;
-
-        String returnable = "";
-        for (int i = 0; i < 11; i++) {
-            if (i < numberOfLampsOn) {
-                if (i % 3 == 2) {
-                    returnable += LAMP_RED;
-                } else {
-                    returnable += LAMP_YELLOW;
-                }
-            } else {
-                returnable += LAMP_OFF;
-            }
-        }
-        return returnable;
-    }
-
-    String getLine4(int min) {
-        int numberOfLampsOn = min % MAJOR_LAMP_QUANT;
-        return turnNumberOfOnLampsToString(numberOfLampsOn, LAMP_YELLOW);
     }
 }
