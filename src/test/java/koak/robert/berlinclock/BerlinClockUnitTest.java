@@ -17,7 +17,7 @@ public class BerlinClockUnitTest {
     @Test
     public void convert_midnight() {
         assertThat(testObj.convert(0, 0, 0)).isEqualTo(
-                        "X\n" +
+                        "Y\n" +
                         "XXXX\n" +
                         "XXXX\n" +
                         "XXXXXXXXXXX\n" +
@@ -27,7 +27,7 @@ public class BerlinClockUnitTest {
     @Test
     public void convert_21_46_48() {
         assertThat(testObj.convert(21, 46, 48)).isEqualTo(
-                        "X\n" +
+                        "Y\n" +
                         "RRRR\n" +
                         "RXXX\n" +
                         "YYRYYRYYRXX\n" +
@@ -37,7 +37,7 @@ public class BerlinClockUnitTest {
     @Test
     public void convert_23_59_59() {
         assertThat(testObj.convert(23, 59, 59)).isEqualTo(
-                        "Y\n" +
+                        "X\n" +
                         "RRRR\n" +
                         "RRRX\n" +
                         "YYRYYRYYRYY\n" +
@@ -46,12 +46,12 @@ public class BerlinClockUnitTest {
 
     @Test
     public void getLine0() {
-        assertThat(testObj.getLine0(0)).isEqualTo("X");
+        assertThat(testObj.getLine0(0)).isEqualTo("Y");
         assertThat(testObj.getLine0(1)).isEqualTo("X");
         assertThat(testObj.getLine0(2)).isEqualTo("Y");
-        assertThat(testObj.getLine0(3)).isEqualTo("Y");
-        assertThat(testObj.getLine0(4)).isEqualTo("X");
-        assertThat(testObj.getLine0(59)).isEqualTo("Y");
+        assertThat(testObj.getLine0(3)).isEqualTo("X");
+        assertThat(testObj.getLine0(4)).isEqualTo("Y");
+        assertThat(testObj.getLine0(59)).isEqualTo("X");
     }
 
     @Test

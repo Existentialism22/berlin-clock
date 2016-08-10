@@ -31,7 +31,7 @@ public class BerlinClock {
     }
 
     String getLine0(int sec) {
-        return (sec % 4 < 2) ? LAMP_OFF : LAMP_YELLOW;
+        return (sec % 2 == 1) ? LAMP_OFF : LAMP_YELLOW;
     }
 
     String getLine1(int hour) {

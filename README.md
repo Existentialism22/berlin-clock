@@ -41,7 +41,7 @@ Each character in the response is represented as below;
 
 ## Ambiguity
 
-Not having seen the clock in person, I have interpreted that 'blinking on/off every two seconds' to be 'light comes on for two seconds and then off for two seconds'
+As the spec is unclear, I have interpreted that 'The top lamp ... blinking on/off every two seconds' to be 'blinks to be ON on even seconds and OFF on odd seconds'
 
 
 ## How to Run
