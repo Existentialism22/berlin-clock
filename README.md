@@ -15,7 +15,7 @@ represents 5 minutes. There are 11 lamps, the 3rd, 6th, and 9th are red
 indicating the first quarter, half, and the last quarter of the hour. In
 the last line with yellow lamps every lamp represents 1 minute.​
 
-## Design decisions
+## Design Decisions
 
 This implementation of Berlin Clock accepts 3 parameters as below;
 
@@ -41,8 +41,14 @@ Each character in the response is represented as below;
 
 ## How to Run
 
-Please use java7 or java8 and run maven.
+1. Please clone this repo.
+2. Please use java7 or java8 and run maven.
+3. Packaging build an uber-jar that is executable.
+4. When run, it will print out the current time in Berlin Clock. 
 
 ```
+git clone https://github.com/tkoa001/berlin-clock.git
+cd berlin-clock
 mvn clean install
+java -jar target/berlin-clock-1.0-SNAPSHOT.jar
 ```

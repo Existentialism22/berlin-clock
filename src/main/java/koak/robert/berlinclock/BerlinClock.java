@@ -1,5 +1,7 @@
 package koak.robert.berlinclock;
 
+import java.util.Calendar;
+
 public class BerlinClock {
 
     public static final int MAJOR_LAMP_QUANT = 5;
@@ -8,6 +10,17 @@ public class BerlinClock {
     public static final String LAMP_YELLOW = "Y";
     public static final String LAMP_RED = "R";
     public static final String NEW_LINE = "\n";
+
+    public static void main(String[] args) {
+        BerlinClock berlinClock = new BerlinClock();
+        int hours = Calendar.getInstance().getTime().getHours();
+        int min = Calendar.getInstance().getTime().getMinutes();
+        int sec = Calendar.getInstance().getTime().getSeconds();
+        System.out.println("CURRENT TIME IN BERLIN CLOCK");
+        System.out.println("============================");
+        System.out.println(berlinClock.convert(hours, min, sec));
+        System.out.println("============================");
+    }
 
     public String convert(int hour, int min, int sec) {
         return getLine0(sec) + NEW_LINE
