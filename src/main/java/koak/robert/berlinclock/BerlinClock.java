@@ -2,7 +2,7 @@ package koak.robert.berlinclock;
 
 public class BerlinClock {
 
-    public static final int LINE_1_EACH_LAMP_HOURS = 5;
+    public static final int MAJOR_LAMP_REP = 5;
     public static final String LAMP_OFF = "X";
     public static final String LAMP_YELLOW = "Y";
     public static final String LAMP_RED = "R";
@@ -12,12 +12,12 @@ public class BerlinClock {
     }
 
     String getLine1(int hour) {
-        int numberOfOnLamps = hour / LINE_1_EACH_LAMP_HOURS;
+        int numberOfOnLamps = hour / MAJOR_LAMP_REP;
         return turnNumberOfOnLampsToHour(numberOfOnLamps);
     }
 
     String getLine2(int hour) {
-        int numberOfOnLamps = hour % LINE_1_EACH_LAMP_HOURS;
+        int numberOfOnLamps = hour % MAJOR_LAMP_REP;
         return turnNumberOfOnLampsToHour(numberOfOnLamps);
     }
 
@@ -34,9 +34,9 @@ public class BerlinClock {
     }
 
     public String getLine3(int min) {
-        int numberOfOnLamps = min / 5;
-        String returnable = "";
+        int numberOfOnLamps = min / MAJOR_LAMP_REP;
 
+        String returnable = "";
         for (int i = 0; i < 11; i++) {
             if (i < numberOfOnLamps) {
                 if (i % 3 == 2) {
@@ -49,7 +49,5 @@ public class BerlinClock {
             }
         }
         return returnable;
-
-
     }
 }
